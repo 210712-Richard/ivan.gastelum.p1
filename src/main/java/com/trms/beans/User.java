@@ -1,6 +1,7 @@
 package com.trms.beans;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 import java.util.UUID;
@@ -23,9 +24,9 @@ public class User {
 	//Department the user belongs to
 	private String department;
 	//Direct supervisor username
-	private String supervisorUserName;
+	private String supervisorUsername;
 	//The current awarded reimbursement available by user
-	private double availableReimbursement = 1000.0d;
+	private double availableReimbursement;
 	//The current total reimbursement requested by user
 	private double totalReimbursementRequested;
 	
@@ -39,6 +40,31 @@ public class User {
 	private List<UUID> reimbursementSent;
 	private List<UUID> reimbursementForReview;
 	
+	/**
+	 * Constructors
+	 */
+	
+	public User() {
+		this.availableReimbursement = 1000.0d;
+		this.reimbursementSent = new ArrayList<>();
+		this.reimbursementForReview = new ArrayList<>();
+		this.totalReimbursementRequested = 0.0d;
+		this.totalAwardedReimbursement = 0.0d;
+	}
+	
+	public User(String username, String password, String fname, String lname, String email,
+			LocalDate startDate, UserType type, String department, String supervisorUsername) {
+		this();
+		this.username = username;
+		this.password = password;
+		this.fname = fname;
+		this.lname = lname;
+		this.email = email;
+		this.startDate = startDate;
+		this.type = type;
+		this.department = department;
+		this.supervisorUsername = supervisorUsername;
+	}
 	
 	/**
 	 * Getters and Setters
@@ -92,11 +118,11 @@ public class User {
 	public void setDepartment(String department) {
 		this.department = department;
 	}
-	public String getSupervisorUserName() {
-		return supervisorUserName;
+	public String getSupervisorUsername() {
+		return supervisorUsername;
 	}
-	public void setSupervisorUserName(String supervisorUserName) {
-		this.supervisorUserName = supervisorUserName;
+	public void setSupervisorUsername(String supervisorUserName) {
+		this.supervisorUsername = supervisorUserName;
 	}
 	public double getAwardedReimbursement() {
 		return availableReimbursement;
@@ -139,7 +165,7 @@ public class User {
 	@Override
 	public int hashCode() {
 		return Objects.hash(availableReimbursement, department, email, fname, lname, password, reimbursementForReview,
-				reimbursementSent, startDate, supervisorUserName, type, username);
+				reimbursementSent, startDate, supervisorUsername, type, username);
 	}
 	@Override
 	public boolean equals(Object obj) {
@@ -156,7 +182,7 @@ public class User {
 				&& Objects.equals(reimbursementForReview, other.reimbursementForReview)
 				&& Objects.equals(reimbursementSent, other.reimbursementSent)
 				&& Objects.equals(startDate, other.startDate)
-				&& Objects.equals(supervisorUserName, other.supervisorUserName) && type == other.type
+				&& Objects.equals(supervisorUsername, other.supervisorUsername) && type == other.type
 				&& Objects.equals(username, other.username);
 	}
 	

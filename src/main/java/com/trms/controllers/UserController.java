@@ -1,12 +1,14 @@
 package com.trms.controllers;
 
+import io.javalin.http.Context;
+
 public interface UserController {
 	
-	public void login();
+	public void login(Context ctx);
 	
-	public void register();
+	public void register(Context ctx);
 	
-	public void logout();
+	public void logout(Context ctx);
 	
-	public void viewUserInfo();
+	public void viewUserInfo(Context ctx);
 }
