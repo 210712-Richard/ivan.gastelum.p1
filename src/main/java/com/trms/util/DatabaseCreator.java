@@ -1,5 +1,9 @@
 package com.trms.util;
 
+import com.trms.beans.User;
+import com.trms.beans.UserType;
+import com.trms.data.UserDAO;
+import com.trms.data.UserDAOimpl;
 
 public class DatabaseCreator {
 	public static void dropTables() {
@@ -8,8 +12,8 @@ public class DatabaseCreator {
 		
 		sb = new StringBuilder("DROP TABLE IF EXISTS Reimbursement;");
 		CassandraUtil.getInstance().getSession().execute(sb.toString());
-		
 	}
+	
 	
 	public static void createTables() {
 		
@@ -36,6 +40,18 @@ public class DatabaseCreator {
 	}
 	
 	public static void populateUserTable() {
+		
+		UserDAO ud = new UserDAOimpl();
+		
+		//Instantiating a user 1
+		User user = new User("aandres", "123", "Andres", "Gastelum", "agastelum@example.com",
+				UserType.EMPLOYEE, "HR", "jjona");
+		ud.registerUser(user);
+		
+		//Instantiating a user 1
+		user = new User("abrahamba", "123", "Abraham", "Barraza", "abarra@example.com",
+				UserType.SUPERVISOR, "Technology", "ssteele");
+		ud.registerUser(user);
 		
 	}
 	

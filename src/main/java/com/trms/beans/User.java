@@ -50,17 +50,18 @@ public class User {
 		this.reimbursementForReview = new ArrayList<>();
 		this.totalReimbursementRequested = 0.0d;
 		this.totalAwardedReimbursement = 0.0d;
+		this.projectedReimbursement = this.availableReimbursement;
+		this.startDate = LocalDate.now();
 	}
 	
 	public User(String username, String password, String fname, String lname, String email,
-			LocalDate startDate, UserType type, String department, String supervisorUsername) {
+			UserType type, String department, String supervisorUsername) {
 		this();
 		this.username = username;
 		this.password = password;
 		this.fname = fname;
 		this.lname = lname;
 		this.email = email;
-		this.startDate = startDate;
 		this.type = type;
 		this.department = department;
 		this.supervisorUsername = supervisorUsername;
