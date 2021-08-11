@@ -1,6 +1,8 @@
 package com.trms.beans;
 
 import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.LocalTime;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
@@ -15,17 +17,17 @@ public class ReimbursementRequest {
 	private String lname;
 	private String deptName;
 	private LocalDate requestDate;
-	private LocalDate deadline;
+	private LocalTime startTime;
+	private LocalDateTime deadline;
 	private double amountRequested;
 	private EventType event;
 	private String description;
-	private String justification;
-	private String workTimeMissed;
 	
 	//Other fields
 	private Boolean isUrgent;
 	private Boolean needsRequestorReview;
-	private List<String> msgURIs;
+	private String msgURI;
+	private String presentation;
 	
 	//Approval fields
 	private Approval supervisorApproval;
@@ -35,12 +37,12 @@ public class ReimbursementRequest {
 	private String finalGrade;
 	private String reimbursementComment;
 	private GradingForm gradingForm; 
+	private double finalAmountReimbursed;
 	
 	public ReimbursementRequest() {
 		super();
 		this.status = Status.PENDING;
 		this.isUrgent = false;
-		msgURIs = new ArrayList<String>();
 		
 		supervisorApproval = new Approval();
 		headDeptApproval = new Approval();

@@ -30,13 +30,13 @@ public class UserServiceImpl implements UserService {
 			LocalDate startDate, UserType type, String department, String supervisorUsername) {
 		User newUser = new User(username, password, fname,lname,email,startDate, type,department,supervisorUsername);
 		
-		return null;
+		return newUser;
 	}
 
 	@Override
 	public User updateUser(User user) {
-		// TODO Auto-generated method stub
-		return null;
+		ud.updateUserInfo(user);
+		return user;
 	}
 
 }
