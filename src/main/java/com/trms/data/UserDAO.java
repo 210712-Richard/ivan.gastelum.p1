@@ -7,7 +7,7 @@ public interface UserDAO {
 	User getUser(String username, String password);
 	
 	//Used to check if username exists
-	boolean getUser(String username);
+	User getUser(String username);
 	
 	void registerUser(User u);
 	

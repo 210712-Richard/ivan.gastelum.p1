@@ -47,7 +47,7 @@ public class Driver {
 		} catch(Exception e) {
 			e.printStackTrace();
 		}
-		DatabaseCreator.populateUserTable();
+		//DatabaseCreator.populateUserTable();
 		DatabaseCreator.populateReimbursementTable();
 		System.exit(0);
 	}

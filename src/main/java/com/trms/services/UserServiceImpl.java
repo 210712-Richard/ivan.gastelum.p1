@@ -22,7 +22,9 @@ public class UserServiceImpl implements UserService {
 
 	@Override
 	public boolean userExists(String username) {
-		return ud.getUser(username);
+		User u = ud.getUser(username);
+		if (u==null) return true;
+		else return false;
 	}
 
 	@Override

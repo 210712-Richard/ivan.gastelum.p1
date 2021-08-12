@@ -53,6 +53,4 @@ public class GradingForm {
 		GradingForm other = (GradingForm) obj;
 		return Objects.equals(grade, other.grade) && gradeFormat == other.gradeFormat;
 	}
-	
-	
 }
