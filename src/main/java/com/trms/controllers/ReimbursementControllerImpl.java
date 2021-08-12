@@ -9,8 +9,8 @@ public class ReimbursementControllerImpl implements ReimbursementController {
 	}
 
 	@Override
-	public void updateApprovalStatus() {
-		// TODO Auto-generated method stub9
+	public void approveRequest() {
+		// TODO Auto-generated method stub
 		
 	}
 
@@ -40,12 +40,6 @@ public class ReimbursementControllerImpl implements ReimbursementController {
 
 	@Override
 	public void reviewRequest() {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void getFile() {
 		// TODO Auto-generated method stub
 		
 	}

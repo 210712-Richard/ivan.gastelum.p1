@@ -12,7 +12,7 @@ public interface ReimbursementController {
 	 * PUT requests
 	 */
 	
-	public void updateApprovalStatus();
+	public void approveRequest();
 	
 	public void cancelRequest();
 	
@@ -28,8 +28,6 @@ public interface ReimbursementController {
 	public void reviewRequest();
 	
 	//Getting the source for downloading files needed for approval
-	public void getFile();
-	
 	public void getPresentation();
 	
 	public void getMsg();

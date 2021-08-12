@@ -83,7 +83,7 @@ public class ReimbursementDAOimpl implements ReimbursementDAO {
 				.append("needsRequestorReview, msgURI, presentation, status, ")
 				.append("supervisorApproval, headDeptApproval, ")
 				.append("benCoApproval, finalGrade, reimbursementComment, finalAmountReimbursed ")
-				.append("FROM request WHERE id = ?;");
+				.append("FROM reimbursement WHERE id = ?;");
 		SimpleStatement s = new SimpleStatementBuilder(query.toString()).build();
 		BoundStatement bound = session.prepare(s).bind(id);
 		
@@ -135,13 +135,13 @@ public class ReimbursementDAOimpl implements ReimbursementDAO {
 	@Override
 	public void updateReimbursement(ReimbursementRequest r) {
 		
-		StringBuilder query = new StringBuilder("UPDATE request SET ")
-				.append("fname, lname, deptName, requestDate, deadline, ")
-				.append("amountRequested, event, startTime, ")
-				.append("description, isUrgent, gradingForm, ")
-				.append("needsRequestorReview, msgURI, presentation, status, ")
-				.append("supervisorApproval, headDeptApproval, ")
-				.append("benCoApproval, finalGrade, reimbursementComment, finalAmountReimbursed ")
+		StringBuilder query = new StringBuilder("UPDATE reimbursement SET ")
+				.append("fname=?, lname=?, deptName=?, requestDate=?, deadline=?, ")
+				.append("amountRequested=?, event=?, startTime=?, ")
+				.append("description=?, isUrgent=?, gradingForm=?, ")
+				.append("needsRequestorReview=?, msgURI=?, presentation=?, status=?, ")
+				.append("supervisorApproval=?, headDeptApproval=?, ")
+				.append("benCoApproval=?, finalGrade=?, reimbursementComment=?, finalAmountReimbursed=? ")
 				.append(" WHERE id = ? AND username = ?;");
 		
 		SimpleStatement s = new SimpleStatementBuilder(query.toString())

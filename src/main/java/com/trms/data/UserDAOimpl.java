@@ -122,9 +122,6 @@ public class UserDAOimpl implements UserDAO {
 	@Override
 	public void updateUserInfo(User u) {
 		
-		/*
-		 * NEEDS TO ADD MISSING FIELDS
-		 */
 		StringBuilder query = new StringBuilder("UPDATE user SET email=?, firstName=?, ")
 				.append("lastName=?, type=?, department=?, supervisorUsername=?, availableReimbursement=?, ")
 				.append("totalReimbursementRequested=?, totalAwardedReimbursement=?, projectedReimbursement=?, reimbursementSent=?, reimbursementForReview=? ")
