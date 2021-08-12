@@ -24,8 +24,8 @@ public class UserDAOimpl implements UserDAO {
 		StringBuilder query = new StringBuilder("Select username , password, email, firstName, ")
 				.append("lastName, type, department, supervisorUsername, startDate, ")
 				.append("availableReimbursement, totalReimbursementRequested, totalAwardedReimbursement, ")
-				.append("projectedReimbursement, reimbursementSent, reimbursementForReview")
-				.append("from user where username=? AND password=?");
+				.append("projectedReimbursement, reimbursementSent, reimbursementForReview ")
+				.append("FROM user where username=? AND password=?");
 		
 		SimpleStatement s = new SimpleStatementBuilder(query.toString()).build();
 		BoundStatement bound = session.prepare(s).bind(username, password);

@@ -27,6 +27,7 @@ public class UserControllerImpl implements UserController {
 			ctx.json(u);
 			return;
 		}
+		ctx.html("Incorrect credentials");
 		ctx.status(401);
 	}
 	@Override
@@ -35,6 +36,7 @@ public class UserControllerImpl implements UserController {
 
 		if(!us.userExists(u.getUsername())) {
 			User newUser = us.register(u.getUsername(), u.getPassword(), u.getFname(), u.getLname(), u.getEmail(), u.getType(), u.getDepartment(), u.getSupervisorUsername());
+			log.debug("New user registered.");
 			ctx.status(201);
 			ctx.json(newUser);
 		} else {
