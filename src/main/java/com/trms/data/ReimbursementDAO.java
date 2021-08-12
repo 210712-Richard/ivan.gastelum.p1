@@ -11,7 +11,7 @@ public interface ReimbursementDAO {
 	void addReimbursement(ReimbursementRequest r);
 	
 	//Getting a reimbursement by id
-	void getReimbursementById(UUID id);
+	ReimbursementRequest getReimbursementById(UUID id);
 	
 	//Getting all reimbursement requests
 	List<ReimbursementRequest> getRequests();

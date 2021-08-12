@@ -1,5 +1,6 @@
 package com.trms.util;
 
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.UUID;
 
@@ -89,7 +90,7 @@ public class DatabaseCreator {
 		
 		GradingForm gf = new GradingForm();
 		ReimbursementRequest req = new ReimbursementRequest(UUID.randomUUID(), "aandres", "Andres", "Gastelum", "HR",
-				LocalDateTime.of(2021,10,10,5,45),200.0, EventType.SEMINAR, "Conference seminar", gf);
+				LocalDateTime.now(),200.0, EventType.SEMINAR, "Conference seminar", gf);
 		rd.addReimbursement(req);
 	}
 }

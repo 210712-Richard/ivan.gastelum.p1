@@ -17,6 +17,12 @@ public class Approval {
 		this();
 		this.reviewUsername = username;
 	}
+	
+	public Approval(Status status, String reason, String reviewUsername) {
+		this.status = status;
+		this.reason = reason;
+		this.reviewUsername = reviewUsername;
+	}
 
 	public Status getStatus() {
 		return status;

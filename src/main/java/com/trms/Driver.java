@@ -43,11 +43,11 @@ public class Driver {
 		}
 		DatabaseCreator.createTables();
 		try {
-			Thread.sleep(20000); // wait 20 seconds
+			Thread.sleep(70000); // wait 20 seconds
 		} catch(Exception e) {
 			e.printStackTrace();
 		}
-		//DatabaseCreator.populateUserTable();
+		DatabaseCreator.populateUserTable();
 		DatabaseCreator.populateReimbursementTable();
 		System.exit(0);
 	}

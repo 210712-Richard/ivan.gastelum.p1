@@ -128,7 +128,7 @@ public class User {
 	public double getAwardedReimbursement() {
 		return availableReimbursement;
 	}
-	public void setAwardedReimbursement(long availableReimbursement) {
+	public void setAvailableReimbursement(double availableReimbursement) {
 		this.availableReimbursement = availableReimbursement;
 	}
 	public List<UUID> getReimbursementSent() {
