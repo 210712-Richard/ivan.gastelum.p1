@@ -57,6 +57,9 @@ public class Driver {
 		//As a user, I can upload an email message
 		app.put("/users/:username/reimbursement/:id/msg", rc::uploadMsg);
 		
+		//As a user, I can update a request
+		app.put("/users/:username/reimbursement/:id", rc::updateRequest);
+		
 		//As a supervisor, I can approve a Reimbursement request from one of my employees
 		//app.put("/users/:username/reimbursement/:id/approval", rc::uploadMsg);
 		

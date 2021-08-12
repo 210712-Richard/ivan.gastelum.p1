@@ -31,9 +31,18 @@ public class ReimbursementServiceImpl implements ReimbursementService {
 	}
 
 	@Override
-	public ReimbursementRequest updateRequestStatus() {
-		// TODO Auto-generated method stub
-		return null;
+	public void updateRequestStatus(ReimbursementRequest req) {
+		rd.updateReimbursement(req);
+	}
+
+	@Override
+	public ReimbursementRequest getRequest(UUID id) {
+		
+		if(id==null)return null;
+		
+		ReimbursementRequest req = rd.getReimbursementById(id);
+		log.debug("Request botained: " + req);
+		return req;
 	}
 	
 }
