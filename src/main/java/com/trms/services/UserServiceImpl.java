@@ -29,9 +29,10 @@ public class UserServiceImpl implements UserService {
 
 	@Override
 	public User register(String username, String password, String fname, String lname, String email,
-			LocalDate startDate, UserType type, String department, String supervisorUsername) {
+			UserType type, String department, String supervisorUsername) {
 		User newUser = new User(username, password, fname,lname,email, type,department,supervisorUsername);
 		
+		ud.registerUser(newUser);
 		return newUser;
 	}
 

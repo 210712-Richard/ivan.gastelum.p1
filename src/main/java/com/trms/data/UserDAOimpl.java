@@ -63,11 +63,15 @@ public class UserDAOimpl implements UserDAO {
 
 	@Override
 	public User getUser(String username) {
-		StringBuilder query = new StringBuilder("Select username , password, email, firstName, ")
+		
+		if(username==null)
+			return null;
+		
+		StringBuilder query = new StringBuilder("SELECT username , password, email, firstName, ")
 				.append("lastName, type, department, supervisorUsername, startDate, ")
 				.append("availableReimbursement, totalReimbursementRequested, totalAwardedReimbursement, ")
-				.append("projectedReimbursement, reimbursementSent, reimbursementForReview")
-				.append("from user where username=? AND password=?");
+				.append("projectedReimbursement, reimbursementSent, reimbursementForReview ")
+				.append("FROM user where username=?;");
 		SimpleStatement s = new SimpleStatementBuilder(query.toString()).build();
 		BoundStatement bound = session.prepare(s).bind(username);
 

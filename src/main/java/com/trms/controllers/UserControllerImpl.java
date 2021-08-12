@@ -1,5 +1,7 @@
 package com.trms.controllers;
 
+import java.time.LocalDate;
+
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import io.javalin.http.Context;
@@ -15,9 +17,8 @@ public class UserControllerImpl implements UserController {
 	
 	@Override
 	public void login(Context ctx) {
-		// TODO Auto-generated method stub
+		
 		User u = ctx.bodyAsClass(User.class);
-		log.debug(u.getPassword());
 		u = us.login(u.getUsername(), u.getPassword());
 		log.debug(u);
 		
@@ -30,11 +31,10 @@ public class UserControllerImpl implements UserController {
 	}
 	@Override
 	public void register(Context ctx) {
-		
 		User u = ctx.bodyAsClass(User.class);
 
 		if(!us.userExists(u.getUsername())) {
-			User newUser = us.register(u.getUsername(), u.getPassword(), u.getFname(), u.getLname(), u.getEmail(), u.getStartDate(), u.getType(), u.getDepartment(), u.getSupervisorUsername());
+			User newUser = us.register(u.getUsername(), u.getPassword(), u.getFname(), u.getLname(), u.getEmail(), u.getType(), u.getDepartment(), u.getSupervisorUsername());
 			ctx.status(201);
 			ctx.json(newUser);
 		} else {

@@ -11,7 +11,7 @@ public interface UserService {
 	boolean userExists(String username);
 
 	User register(String username, String password, String fname, String lname, 
-			String email, LocalDate startDate, UserType type, String department, 
+			String email, UserType type, String department, 
 			String supervisorUsername);
 
 	User updateUser(User user);
