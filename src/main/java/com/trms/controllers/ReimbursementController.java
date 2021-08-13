@@ -13,7 +13,6 @@ public interface ReimbursementController {
 	/*
 	 * PUT requests
 	 */
-	
 	public void approveRequest(Context ctx);
 	
 	public void cancelRequest(Context ctx);

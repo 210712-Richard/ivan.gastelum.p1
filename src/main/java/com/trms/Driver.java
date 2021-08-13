@@ -52,22 +52,23 @@ public class Driver {
 		app.get("/users/:username/reimbursement/:id", rc::getReimbursement);
 		
 		//As a user, I can upload a presentation
-		app.put("/users/:username/reimbursement/ppt", rc::uploadPPT);
+		app.put("/users/:username/reimbursement/:id/ppt", rc::uploadPPT);
 		
 		//As a user, I can upload an email message
 		app.put("/users/:username/reimbursement/:id/msg", rc::uploadMsg);
 		
+		//As a user, I can download a presentation
+		app.get("/users/:username/reimbursement/:id/ppt", rc::getPresentation);
+		
+		//As a user, I can download an email message
+		app.get("/users/:username/reimbursement/:id/msg", rc::getMsg);
+		
 		//As a user, I can update a request
 		app.put("/users/:username/reimbursement/:id", rc::updateRequest);
 		
-		//As a supervisor, I can approve a Reimbursement request from one of my employees
-		//app.put("/users/:username/reimbursement/:id/approval", rc::uploadMsg);
+		//As a user of any type, I can approve a Reimbursement request from one of my employees
+		app.put("/users/:username/reimbursement/:id/approval", rc::approveRequest);
 		
-		//As a Head of Department, I can approve a Reimbursement request after the correct supervisor has approved it
-		//app.put("/users/:username/reimbursement/:id/approval", rc::uploadMsg);
-		
-		//As a Benefits Coordinator, I can approve a Reimbursement request
-		//app.put("/users/:username/reimbursement/:id/approval", rc::uploadMsg);
 	}
 
 	public static void dbtest() {
