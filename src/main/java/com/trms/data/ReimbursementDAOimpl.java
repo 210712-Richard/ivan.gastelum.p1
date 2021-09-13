@@ -115,13 +115,16 @@ public class ReimbursementDAOimpl implements ReimbursementDAO {
 		//Instantiating approvals and used values from tuple values
 		Approval supervisor = new Approval(Status.valueOf(row.getTupleValue("supervisorApproval").get(0,String.class)), row.getTupleValue("supervisorApproval").get(1,String.class), row.getTupleValue("supervisorApproval").get(2,String.class));
 		r.setSupervisorApproval(supervisor);
+		System.out.println(r.getSupervisorApproval().getReviewUsername());
 		Approval head = new Approval(Status.valueOf(row.getTupleValue("headDeptApproval").get(0,String.class)), row.getTupleValue("headDeptApproval").get(1,String.class), row.getTupleValue("headDeptApproval").get(2,String.class));
-		r.setSupervisorApproval(head);
+		r.setHeadDeptApproval(head);
 		Approval benco = new Approval(Status.valueOf(row.getTupleValue("benCoApproval").get(0,String.class)), row.getTupleValue("benCoApproval").get(1,String.class), row.getTupleValue("benCoApproval").get(2,String.class));
-		r.setSupervisorApproval(benco);
+		r.setBenCoApproval(benco);
 		r.setFinalGrade(row.getString("finalGrade"));
 		r.setReimbursementComment(row.getString("reimbursementComment"));
 		r.setFinalAmountReimbursed(row.getDouble("finalAmountReimbursed"));
+		
+		System.out.println(r.getSupervisorApproval().getReviewUsername());
 		
 		return r;
 	}

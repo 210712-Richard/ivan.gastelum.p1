@@ -64,6 +64,10 @@ public class ReimbursementControllerImpl implements ReimbursementController {
 		User loggedUser = ctx.sessionAttribute("loggedUser");
 		String username = ctx.pathParam("username");
 		
+		String description = ctx.queryParam("description");
+		String newAmount = ctx.queryParam("amount");
+		Double amount = Double.parseDouble(newAmount);
+		
 		//Query params
 		String approval = ctx.queryParam("status");
 
@@ -76,7 +80,12 @@ public class ReimbursementControllerImpl implements ReimbursementController {
 		UUID requestId = UUID.fromString(ctx.pathParam("id"));
 		ReimbursementRequest req = rs.getRequest(requestId);
 
+		//Approval a = new Approval();
+		//a.setReviewUsername("Verify");
+		//req.setSupervisorApproval(a);
 		
+		req.setAmountRequested(amount);
+		req.setDescription(description);
 		rs.updateRequestStatus(req);
 	}
 
@@ -103,6 +112,12 @@ public class ReimbursementControllerImpl implements ReimbursementController {
 		// Check if correct people are able to access the request
 		//If the user's department is the same as the 
 		
+		if(loggedUser.getType().equals(UserType.EMPLOYEE) && loggedUser.getUsername().equals(username)) {
+			ctx.status(201);
+			ctx.json(req);
+			return;
+		}
+		
 		//Benco are able to see any reimbursement
 		if(loggedUser.getType().equals(UserType.BENCO)) {
 			ctx.status(201);
@@ -123,7 +138,7 @@ public class ReimbursementControllerImpl implements ReimbursementController {
 			return;
 		}
 
-		ctx.status(401);
+		ctx.status(404);
 	}
 
 	@Override

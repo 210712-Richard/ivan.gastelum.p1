@@ -41,7 +41,7 @@ public class ReimbursementServiceImpl implements ReimbursementService {
 		if(id==null)return null;
 		
 		ReimbursementRequest req = rd.getReimbursementById(id);
-		log.debug("Request botained: " + req);
+		log.debug("Request botained: " + req.getSupervisorApproval().getReviewUsername());
 		return req;
 	}
 	
